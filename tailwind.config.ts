@@ -12,6 +12,10 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        manrope: ["var(--font-manrope)", "Manrope", "sans-serif"],
+        roboto: ["var(--font-roboto)", "Roboto", "sans-serif"],
+      },
     },
   },
   plugins: [],

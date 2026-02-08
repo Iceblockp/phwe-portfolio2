@@ -23,7 +23,7 @@ export default function About() {
   ];
 
   return (
-    <section className="py-20 px-6 bg-gray-50">
+    <section id="about" className="py-20 px-6 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           {/* Left side - Tool icons in circular arrangement */}
@@ -147,8 +147,8 @@ export default function About() {
                       index === 0
                         ? "0.5deg"
                         : index === 1
-                        ? "-0.5deg"
-                        : "0.5deg"
+                          ? "-0.5deg"
+                          : "0.5deg"
                     })`,
                   }}
                 >
