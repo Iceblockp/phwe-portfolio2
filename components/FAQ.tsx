@@ -147,7 +147,7 @@ export default function FAQ() {
 
         {/* Bottom CTA */}
         <div className="mt-16">
-          <div className="bg-gradient-to-br from-purple-600 via-purple-700 to-blue-600 rounded-3xl p-8 text-white text-center">
+          <div className="bg-linear-to-br from-purple-600 via-purple-700 to-blue-600 rounded-3xl p-8 text-white text-center">
             <h3 className="text-2xl font-bold mb-2">Try me out, risk free!</h3>
             <p className="text-purple-100 mb-6">
               Let&apos;s build something great together

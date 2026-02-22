@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function Projects() {
   const projects = [
@@ -11,6 +14,7 @@ export default function Projects() {
       bgColor: "bg-gradient-to-br from-cyan-100 to-blue-200",
       image: "/images/diet-plan.png",
       buttonText: "View Details",
+      link: "https://www.figma.com/design/2vvoLTIt8x3b3ZjScXF9tn/PROJECT?node-id=0-1&t=42VfcvLm14cmNkUr-1",
     },
     {
       title: "Management for Too To Movie",
@@ -21,6 +25,7 @@ export default function Projects() {
       bgColor: "bg-gradient-to-br from-purple-200 to-purple-300",
       image: "/images/too-to.png",
       buttonText: "View Detail",
+      link: "https://toototv.com",
       reverse: true,
     },
     {
@@ -32,6 +37,7 @@ export default function Projects() {
       bgColor: "bg-gradient-to-br from-cyan-100 to-blue-200",
       image: "/images/kio-taxi.png",
       buttonText: "View Details",
+      link: "https://fairpricetaxi.com.mm",
     },
     {
       title: "Management System for Lady Grace Diamond Land",
@@ -42,6 +48,7 @@ export default function Projects() {
       bgColor: "bg-gradient-to-br from-purple-200 to-purple-300",
       image: "/images/diamond-land.png",
       buttonText: "View Details",
+      link: "#",
       reverse: true,
     },
   ];
@@ -49,15 +56,25 @@ export default function Projects() {
   return (
     <section id="projects" className="py-20 px-6 ">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold mb-16 text-center text-gray-900">
+        <motion.h2
+          className="text-4xl font-bold mb-16 text-center text-gray-900"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
           Projects
-        </h2>
+        </motion.h2>
 
         <div className="space-y-8">
           {projects.map((project, index) => (
-            <div
+            <motion.div
               key={index}
               className={`${project.bgColor} rounded-3xl p-8 md:p-12 shadow-lg`}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 {/* Content side */}
@@ -91,15 +108,20 @@ export default function Projects() {
                         key={featureIndex}
                         className="flex items-center gap-3"
                       >
-                        <div className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0"></div>
+                        <div className="w-2 h-2 bg-blue-500 rounded-full shrink-0"></div>
                         <span className="text-gray-700 text-sm">{feature}</span>
                       </li>
                     ))}
                   </ul>
 
-                  <button className="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition font-medium">
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition font-medium"
+                  >
                     {project.buttonText} →
-                  </button>
+                  </a>
                 </div>
 
                 {/* Image side */}
@@ -108,7 +130,7 @@ export default function Projects() {
                 >
                   <div className="relative">
                     <div className="bg-white rounded-2xl p-4 shadow-xl">
-                      <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
+                      <div className="relative aspect-4/3 rounded-xl overflow-hidden">
                         <Image
                           src={project.image}
                           alt={project.title}
@@ -138,7 +160,7 @@ export default function Projects() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

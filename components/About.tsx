@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function About() {
   const specializations = [
@@ -27,10 +30,32 @@ export default function About() {
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           {/* Left side - Tool icons in circular arrangement */}
-          <div className="relative flex justify-center items-center">
-            <div className="relative w-96 h-96">
+          <motion.div
+            className="relative flex justify-center items-center"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <motion.div
+              className="relative w-96 h-96"
+              animate={{ rotate: 360 }}
+              transition={{
+                duration: 20,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+            >
               {/* Center sparkle decoration */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+              <motion.div
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
+                animate={{ rotate: -360 }}
+                transition={{
+                  duration: 20,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+              >
                 <svg
                   width="64"
                   height="64"
@@ -43,23 +68,39 @@ export default function About() {
                     fill="currentColor"
                   />
                 </svg>
-              </div>
+              </motion.div>
 
-              {/* Icons arranged in a circle around center */}
-              {/* Gemini - top */}
-              <div className="absolute top-4 left-1/2 -translate-x-1/2">
-                <div className="w-16 h-16 rounded-full overflow-hidden">
+              {/* Icons arranged in a perfect circle - all uniform */}
+              {/* Icon 1 - Gemini (top - 0°) */}
+              <motion.div
+                className="absolute top-8 left-1/2 -translate-x-1/2"
+                animate={{ rotate: -360 }}
+                transition={{
+                  duration: 20,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+              >
+                <div className="w-16 h-16 rounded-full overflow-hidden bg-white shadow-md flex items-center justify-center">
                   <Image
                     src="/icons/gemini.png"
                     alt="Gemini"
-                    width={64}
-                    height={64}
+                    width={48}
+                    height={48}
                   />
                 </div>
-              </div>
+              </motion.div>
 
-              {/* Figma - top right */}
-              <div className="absolute top-12 right-12">
+              {/* Icon 2 - Figma (45° - top right) */}
+              <motion.div
+                className="absolute top-[15%] right-[15%]"
+                animate={{ rotate: -360 }}
+                transition={{
+                  duration: 20,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+              >
                 <div className="w-16 h-16 rounded-full overflow-hidden bg-white shadow-md flex items-center justify-center">
                   <Image
                     src="/icons/figma.png"
@@ -68,11 +109,19 @@ export default function About() {
                     height={48}
                   />
                 </div>
-              </div>
+              </motion.div>
 
-              {/* Photoshop - right */}
-              <div className="absolute top-1/2 right-0 -translate-y-1/2">
-                <div className="w-16 h-16 rounded-xl overflow-hidden bg-[#001E36] flex items-center justify-center">
+              {/* Icon 3 - Photoshop (90° - right) */}
+              <motion.div
+                className="absolute top-1/2 right-8 -translate-y-1/2"
+                animate={{ rotate: -360 }}
+                transition={{
+                  duration: 20,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+              >
+                <div className="w-16 h-16 rounded-full overflow-hidden bg-white shadow-md flex items-center justify-center">
                   <Image
                     src="/icons/photoshop.png"
                     alt="Photoshop"
@@ -80,11 +129,19 @@ export default function About() {
                     height={48}
                   />
                 </div>
-              </div>
+              </motion.div>
 
-              {/* Notion - bottom right */}
-              <div className="absolute bottom-12 right-12">
-                <div className="w-16 h-16 rounded-xl overflow-hidden bg-white shadow-md flex items-center justify-center">
+              {/* Icon 4 - Notion (135° - bottom right) */}
+              <motion.div
+                className="absolute bottom-[15%] right-[15%]"
+                animate={{ rotate: -360 }}
+                transition={{
+                  duration: 20,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+              >
+                <div className="w-16 h-16 rounded-full overflow-hidden bg-white shadow-md flex items-center justify-center">
                   <Image
                     src="/icons/notion.png"
                     alt="Notion"
@@ -92,10 +149,18 @@ export default function About() {
                     height={48}
                   />
                 </div>
-              </div>
+              </motion.div>
 
-              {/* ChatGPT - bottom */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
+              {/* Icon 5 - ChatGPT (180° - bottom) */}
+              <motion.div
+                className="absolute bottom-8 left-1/2 -translate-x-1/2"
+                animate={{ rotate: -360 }}
+                transition={{
+                  duration: 20,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+              >
                 <div className="w-16 h-16 rounded-full overflow-hidden bg-white shadow-md flex items-center justify-center">
                   <Image
                     src="/icons/chatgpt.png"
@@ -104,44 +169,85 @@ export default function About() {
                     height={48}
                   />
                 </div>
-              </div>
+              </motion.div>
 
-              {/* Canva - bottom left */}
-              <div className="absolute bottom-12 left-12">
-                <div className="w-16 h-16 rounded-full overflow-hidden">
+              {/* Icon 6 - Canva (225° - bottom left) */}
+              <motion.div
+                className="absolute bottom-[15%] left-[15%]"
+                animate={{ rotate: -360 }}
+                transition={{
+                  duration: 20,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+              >
+                <div className="w-16 h-16 rounded-full overflow-hidden bg-white shadow-md flex items-center justify-center">
                   <Image
                     src="/icons/canva.png"
                     alt="Canva"
-                    width={64}
-                    height={64}
-                  />
-                </div>
-              </div>
-
-              {/* Gemini/AI icon - left */}
-              <div className="absolute top-1/2 left-0 -translate-y-1/2">
-                <div className="w-16 h-16 rounded-full overflow-hidden bg-black flex items-center justify-center">
-                  <Image
-                    src="/icons/gemini.png"
-                    alt="AI Tool"
                     width={48}
                     height={48}
                   />
                 </div>
-              </div>
-            </div>
-          </div>
+              </motion.div>
+
+              {/* Icon 7 - NotebookLM (270° - left) */}
+              <motion.div
+                className="absolute top-1/2 left-8 -translate-y-1/2"
+                animate={{ rotate: -360 }}
+                transition={{
+                  duration: 20,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+              >
+                <div className="w-16 h-16 rounded-full overflow-hidden bg-white shadow-md flex items-center justify-center">
+                  <Image
+                    src="/icons/notebooklm.png"
+                    alt="NotebookLM"
+                    width={48}
+                    height={48}
+                  />
+                </div>
+              </motion.div>
+
+              {/* Icon 8 - GitHub (315° - top left) */}
+              <motion.div
+                className="absolute top-[15%] left-[15%]"
+                animate={{ rotate: -360 }}
+                transition={{
+                  duration: 20,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+              >
+                <div className="w-16 h-16 rounded-full overflow-hidden bg-white shadow-md flex items-center justify-center">
+                  <Image
+                    src="/icons/github.png"
+                    alt="GitHub"
+                    width={48}
+                    height={48}
+                  />
+                </div>
+              </motion.div>
+            </motion.div>
+          </motion.div>
 
           {/* Right side - Specialization cards with rotation */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
             <h2 className="text-4xl font-bold mb-8 text-gray-900">
               I specialized in
             </h2>
             <div className="space-y-5">
               {specializations.map((item, index) => (
-                <div
+                <motion.div
                   key={item.number}
-                  className="relative bg-gradient-to-br from-blue-50 via-purple-50 to-blue-100 p-6 rounded-2xl border-2 border-gray-300 hover:shadow-lg transition overflow-hidden"
+                  className="relative bg-linear-to-br from-blue-50 via-purple-50 to-blue-100 p-6 rounded-2xl border-2 border-gray-300 hover:shadow-lg transition overflow-hidden"
                   style={{
                     transform: `rotate(${
                       index === 0
@@ -151,12 +257,16 @@ export default function About() {
                           : "0.5deg"
                     })`,
                   }}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
                   {/* Diagonal purple accent in top-right corner */}
-                  <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-purple-200 to-purple-300 opacity-50 transform rotate-45 translate-x-20 -translate-y-20 rounded-lg"></div>
+                  <div className="absolute top-0 right-0 w-40 h-40 bg-linear-to-br from-purple-200 to-purple-300 opacity-50 transform rotate-45 translate-x-20 -translate-y-20 rounded-lg"></div>
 
                   <div className="relative flex gap-4">
-                    <div className="text-2xl font-bold text-gray-400 flex-shrink-0">
+                    <div className="text-2xl font-bold text-gray-400 shrink-0">
                       {item.number}
                     </div>
                     <div>
@@ -168,10 +278,10 @@ export default function About() {
                       </p>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
